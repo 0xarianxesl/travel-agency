@@ -16,7 +16,7 @@ const NavItems = ({ handleClick }: { handleClick?: () => void }) => {
     <section className="nav-items">
       <Link
         to="/"
-        className="link-logo"
+        className="flex items-center gap-1.5 py-10"
       >
         <img
           src="/assets/icons/logo.svg"
