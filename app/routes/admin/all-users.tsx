@@ -1,7 +1,7 @@
-import Header from "components/Header";
+import { Header } from "../../../components";
 import {
-  ColumnDirective,
   ColumnsDirective,
+  ColumnDirective,
   GridComponent,
 } from "@syncfusion/ej2-react-grids";
 import { cn, formatDate } from "~/lib/utils";
@@ -10,6 +10,7 @@ import type { Route } from "./+types/all-users";
 
 export const loader = async () => {
   const { users, total } = await getAllUsers(10, 0);
+
   return { users, total };
 };
 
@@ -20,7 +21,7 @@ const AllUsers = ({ loaderData }: Route.ComponentProps) => {
     <main className="all-users wrapper">
       <Header
         title="Manage Users"
-        description="Filter, sort and access detailed user profiles"
+        description="Filter, sort, and access detailed user profiles"
       />
 
       <GridComponent
@@ -45,14 +46,12 @@ const AllUsers = ({ loaderData }: Route.ComponentProps) => {
               </div>
             )}
           />
-
           <ColumnDirective
             field="email"
             headerText="Email Address"
             width="200"
             textAlign="Left"
           />
-
           <ColumnDirective
             field="joinedAt"
             headerText="Date Joined"
@@ -62,7 +61,6 @@ const AllUsers = ({ loaderData }: Route.ComponentProps) => {
               formatDate(joinedAt)
             }
           />
-
           <ColumnDirective
             field="status"
             headerText="Type"
@@ -97,5 +95,4 @@ const AllUsers = ({ loaderData }: Route.ComponentProps) => {
     </main>
   );
 };
-
 export default AllUsers;
